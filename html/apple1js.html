@@ -1,0 +1,36 @@
+<!DOCTYPE html><!-- -*- mode: HTML; indent-tabs-mode: nil -*- -->
+<!-- 
+ Copyright 2010-2015 Will Scullin <scullin@scullinsteel.com>
+ 
+ Permission to use, copy, modify, distribute, and sell this software and its
+ documentation for any purpose is hereby granted without fee, provided that
+ the above copyright notice appear in all copies and that both that
+ copyright notice and this permission notice appear in supporting
+ documentation.  No representations are made about the suitability of this
+ software for any purpose.  It is provided "as is" without express or
+ implied warranty.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Apple 1js</title>
+    <meta name="viewport" content="width=602, user-scalable=no" />
+
+    <link rel="stylesheet" type="text/css" href="css/apple1.css" />
+ </head>
+  <body>
+    <div style="margin: auto; width: 602px">
+      <div class="overscan">
+        <canvas width="560" height="384" id="screen" />
+      </div>
+      <div id="keyboard">
+      </div>
+    </div>
+    <script type="text/javascript" src="module.js"></script>
+    <script type="text/javascript">
+    {
+        var main = require('./js/main.js');
+    }
+    </script>
+  </body>
+</html>

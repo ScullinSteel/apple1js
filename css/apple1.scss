@@ -1,0 +1,320 @@
+/* Copyright 2010-2013 Will Scullin */
+
+img {
+  border: none;
+}
+
+img#badge {
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0;
+  padding: 3px 0 0 10px;
+  color: #fff;
+  font-family: Helvetica, Ariel;
+  font-size: 17px;
+  font-weight: normal;
+}
+
+h2 {
+  margin: 0;
+  padding: 3px 0 0 10px;
+  color: #fff;
+  font-family: Helvetica, Ariel;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+input[type="button"] {
+  width: 75px;
+}
+
+input[type="text"] {
+  width: 40px;
+}
+
+body {
+  margin: 16px 0;
+  font-size: 10px;
+  background-color: #114024;
+  color: #fff;
+}
+
+#display {
+  margin: 5px 0;
+}
+
+.overscan {
+  margin: auto;
+  position: relative;
+  background-color: black;
+  padding: 16px;
+  width: 560px;
+  height: 384px;
+  border: 6px solid #75d475;
+  border-radius: 10px;
+}
+
+#power {
+  padding: 2px;
+  border: 1px inset #ddc364;
+}
+
+span.code {
+  font-family: Courier;
+  font-size: 14px;
+  white-space: pre;
+}
+
+th {
+  background-color: #ccc;
+}
+
+.inset {
+  background: #114024;
+  width: 590px;
+  border-radius: 6px;
+  border: 3px solid #75d475;
+  padding: 6px;
+  margin: 10px 0;
+  position: relative;
+}
+
+#speed {
+  margin: 9px 0;
+  width: 200px;
+}
+
+#khz {
+  margin-right: 4px;
+  padding: 4px;
+  float: left;
+  font-family: Courier;
+  font-size: 12px;
+  width: 60px;
+  height: 15px;
+  text-align: right;
+  background: #000;
+  color: #fff;
+  border: 2px solid #75d475;
+  border-radius: 4px;
+}
+
+canvas {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  cursor: crosshair;
+  width: 560px;
+  height: 384px;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+}
+
+:-webkit-full-screen #display {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-device-width:1120px) {
+:-webkit-full-screen { 
+  background: #000;
+}
+
+:-webkit-full-screen .overscan {
+  border: 0 none !important;
+  width: 1120px;
+  height: 768px;
+}
+
+:-webkit-full-screen canvas {
+  width: 1120px;
+  height: 768px;
+}
+
+:-webkit-full-screen #scanlines {
+  width: 1120px;
+  height: 768px;
+}
+}
+
+#scanlines {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  cursor: crosshair;
+  z-index: 1;
+  width: 560px;
+  height: 384px;
+}
+
+#about iframe {
+  border: 1px inset #666;
+  width: 99%;
+  height: 99%;
+}
+
+#about {
+  padding: 16px;
+  margin: 0;
+  font-family: "Adobe Garamond Pro",Garamond,Times;
+  font-size: 14px;
+  background-color: #fff;
+  color: #000;
+}
+
+#about a {
+  background-color: #fff;
+  color: #000;
+}
+
+#load select {
+  width: 250px;
+  height: 300px;
+}
+
+#keyboard {
+  border-radius: 6px;
+  padding: 0 0 3px;
+
+  .row {
+    margin: 0;
+    padding: 0;
+    height: 43px;
+    font-family: Helvetica;
+    width: 605px;
+  }
+
+  .row0 {
+    margin-left: 20px;
+  }
+
+  .row2 {
+    margin-left: 10px;
+  }
+
+  .row3 {
+    margin-left: 10px;
+  }
+
+  .row4 {
+    margin-left: 10px;
+  }
+
+  .key {
+    background-color: #44372c;
+    border: 5px outset #66594e;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    height: 34px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: bottom;
+    width: 34px;
+
+    div {
+      border-radius: 3px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+
+      span {
+        font-size: 14px;
+
+        &.small {
+          font-size: 7px;
+        }
+      }
+    }
+  }
+
+  .pressed {
+    background-color: #22150A;
+    border: 5px outset #44372C;
+  }
+
+
+  .vcenter {
+    div {
+      bottom: 10px;
+    }
+  }
+
+  .vcenter2 {
+    div {
+      bottom: 5px;
+    }
+  }
+
+  .key-shift {
+    width: 53px;
+  }
+
+  .active {
+    color: #4f4;
+  }
+
+  .key-return {
+    width: 52px;
+  }
+
+  .key-delete {
+    width: 47px;
+  }
+
+  .key-tab {
+    width: 47px;
+  }
+
+  .key-nbsp {
+    margin-left: 104px;
+    width: 330px;
+  }
+}
+
+#text_input {
+  font-family: Courier, fixed;
+}
+
+#player {
+  position: absolute;
+  left: 290px;
+  top: 12px;
+  border: 2px solid #75d475;
+  border-radius: 4px;
+  width: 100px;
+  height: 10px;
+  background: black;
+  text-align: center;
+}
+
+#supply {
+  width: 75px;
+  height: 10px;
+  position: absolute;
+  background: brown;
+}
+
+#takeup {
+  width: 0;
+  height: 10px;
+  position: absolute;
+  right: 0;
+  background: brown;
+}
+
+#tape {
+  width: 0;
+  height: 10px;
+  position: absolute;
+  background: brown;
+}
