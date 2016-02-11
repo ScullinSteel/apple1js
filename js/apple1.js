@@ -12,10 +12,10 @@ var runTimer;
 var _requestAnimationFrame;
 
 if (typeof window !== 'undefined') {
-    _requestAnimationFrame = 
-        window.requestAnimationFrame || 
+    _requestAnimationFrame =
+        window.requestAnimationFrame ||
         window.mozRequestAnimationFrame ||
-        window.webkitRequestAnimationFrame || 
+        window.webkitRequestAnimationFrame ||
         window.msRequestAnimationFrame;
 }
 
@@ -25,12 +25,12 @@ function Apple1(options) {
         if (runTimer) {
             clearInterval(runTimer);
         }
-        
+
         var ival = 30;
         var stepMax = kHz * ival * 1.25;
-        
+
         var now, last = Date.now();
-        var runFn = function() { 
+        var runFn = function() {
             now = Date.now();
 
             var step = (now - last) * kHz;
@@ -38,10 +38,10 @@ function Apple1(options) {
             if (step > stepMax) {
                 step = stepMax;
             }
-            
+
             cpu.stepCycles(step);
             textpage.blit();
-            
+
             if (_requestAnimationFrame) {
                 _requestAnimationFrame(runFn);
             }
@@ -56,7 +56,7 @@ function Apple1(options) {
     var cpu = new CPU6502();
 
     var textpage = new TextPage();
-    var ram = new RAM(0, 0x10);
+    var ram = new RAM(0, 0x40);
     var basic = new Basic();
     var io = new Apple1IO(textpage);
     var bios = new Bios();
@@ -80,7 +80,7 @@ function Apple1(options) {
         getACI: function getACI() {
             return aci;
         },
-        
+
         getCPU: function () {
             return cpu;
         },
@@ -88,7 +88,7 @@ function Apple1(options) {
         getIO: function getIO() {
             return io;
         },
-        
+
         getTextPage: function getTextPage() {
             return textpage;
         }
