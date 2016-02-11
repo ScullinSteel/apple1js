@@ -1,4 +1,4 @@
-/* Copyright 2010-2016 Will Scullin <scullin@scullinsteel.com>
+/* Copyright 20102016 Will Scullin <scullin@scullinsteel.com>
  *
  * Permission to use, copy, modify, distribute, and sell this software and its
  * documentation for any purpose is hereby granted without fee, provided that
@@ -10,7 +10,7 @@
  */
 
 var debug = require('debug')('apple1js:keyboard');
-var Util = require('./util');
+var Util = require('../util');
 var toHex = Util.toHex;
 
 // keycode: [plain, cntl, shift]

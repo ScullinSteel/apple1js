@@ -1,6 +1,6 @@
 <!DOCTYPE html><!-- -*- mode: HTML; indent-tabs-mode: nil -*- -->
 <!-- 
- Copyright 2010-2015 Will Scullin <scullin@scullinsteel.com>
+ Copyright 20102016 Will Scullin <scullin@scullinsteel.com>
  
  Permission to use, copy, modify, distribute, and sell this software and its
  documentation for any purpose is hereby granted without fee, provided that
@@ -20,16 +20,33 @@
  </head>
   <body>
     <div style="margin: auto; width: 602px">
+      <div class="inset">
+        <h1 style="font-size: 24px" class="motter">Apple 1js</h1>
+        <h2 id="subtitle">An Apple 1 Emulator in JavaScript</h1>
+      </div>
       <div class="overscan">
         <canvas width="560" height="384" id="screen" />
       </div>
-      <div id="keyboard">
+      <div class="inset">
+        <div id="player"></div><div id="player_label"></div>
+      </div>
+      <div class="inset">
+        <div id="keyboard"></div>
       </div>
     </div>
     <script type="text/javascript" src="module.js"></script>
     <script type="text/javascript">
     {
         var main = require('./js/main.js');
+        function updateHash() {
+            var hash = document.location.hash;
+            if (hash) {
+                var tape = hash.substr(1);
+                main.loadTape(tape, false);
+            }
+        }
+        updateHash();
+        window.onhashchange = updateHash
     }
     </script>
   </body>

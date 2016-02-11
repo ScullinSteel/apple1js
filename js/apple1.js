@@ -5,6 +5,7 @@ var TextPage = require('./canvas1');
 var Apple1IO = require('./apple1io');
 var Basic = require('./basic');
 var Bios = require('./bios');
+var ACI = require('./aci');
 
 var kHz = 1023;
 var runTimer;
@@ -59,9 +60,11 @@ function Apple1(options) {
     var basic = new Basic();
     var io = new Apple1IO(textpage);
     var bios = new Bios();
+    var aci = new ACI(cpu, options.aciCallbacks);
 
     cpu.addPageHandler(ram);
     cpu.addPageHandler(io);
+    cpu.addPageHandler(aci);
     cpu.addPageHandler(basic);
     cpu.addPageHandler(bios);
 
@@ -74,6 +77,10 @@ function Apple1(options) {
     run();
 
     return {
+        getACI: function getACI() {
+            return aci;
+        },
+        
         getCPU: function () {
             return cpu;
         },

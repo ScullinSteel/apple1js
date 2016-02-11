@@ -4,8 +4,9 @@ options:
   formatter: stylish
   merge-default-rules: true
 rules:
-  no-ids: 0
   nesting-depth:
     - 2
     - max-depth: 4
+  no-ids: 0
+  no-qualifying-elements: 0
   no-vendor-prefixes: 0

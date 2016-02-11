@@ -1,0 +1,112 @@
+@import './colors';
+
+$key-background-color: #44372c;
+$key-border-color: #66594e;
+$key-active-color: #4f4;
+$key-pressed-background-color: #22150a;
+$key-pressed-border-color: #44372c;
+
+#keyboard {
+  border-radius: 6px;
+  padding: 0 0 3px;
+
+  .row {
+    font-family: Helvetica;
+    height: 43px;
+    margin: 0;
+    padding: 0;
+    width: 605px;
+  }
+
+  .row0 {
+    margin-left: 20px;
+  }
+
+  .row2 {
+    margin-left: 10px;
+  }
+
+  .row3 {
+    margin-left: 10px;
+  }
+
+  .row4 {
+    margin-left: 10px;
+  }
+
+  .key {
+    background-color: $key-background-color;
+    border: 5px outset $key-border-color;
+    border-radius: 5px;
+    color: $white;
+    cursor: pointer;
+    display: inline-block;
+    height: 34px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: bottom;
+    width: 34px;
+
+    div {
+      border-radius: 3px;
+      bottom: 0;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+
+      span {
+        font-size: 14px;
+
+        &.small {
+          font-size: 7px;
+        }
+      }
+    }
+  }
+
+  .pressed {
+    background-color: $key-pressed-background-color;
+    border: 5px outset $key-pressed-border-color;
+  }
+
+
+  .vcenter {
+    div {
+      bottom: 10px;
+    }
+  }
+
+  .vcenter2 {
+    div {
+      bottom: 5px;
+    }
+  }
+
+  .key-shift {
+    width: 53px;
+  }
+
+  .active {
+    color: $key-active-color;
+  }
+
+  .key-return {
+    width: 52px;
+  }
+
+  .key-delete {
+    width: 47px;
+  }
+
+  .key-tab {
+    width: 47px;
+  }
+
+  .key-nbsp {
+    margin-left: 104px;
+    width: 330px;
+  }
+}

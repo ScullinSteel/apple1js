@@ -1,0 +1,42 @@
+@import './colors';
+$tape-color: #a52a2a;
+
+#player {
+  background: $black;
+  border: 2px solid $border-color;
+  border-radius: 4px;
+  display: inline-block;
+  height: 10px;
+  position: relative;
+  text-align: center;
+  width: 100px;
+}
+
+#player_label {
+  display: inline-block;
+  font-size: 12px;
+  padding-left: 10px;
+  vertical-align: top;
+}
+
+#supply {
+  background: $tape-color;
+  height: 10px;
+  position: absolute;
+  width: 75px;
+}
+
+#takeup {
+  background: $tape-color;
+  height: 10px;
+  position: absolute;
+  right: 0;
+  width: 0;
+}
+
+#tape {
+  background: $tape-color;
+  height: 10px;
+  position: absolute;
+  width: 0;
+}
