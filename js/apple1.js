@@ -56,7 +56,7 @@ function Apple1(options) {
     var cpu = new CPU6502();
 
     var textpage = new TextPage();
-    var ram = new RAM(0, 0x40);
+    var ram = new RAM(0, 0x80);
     var basic = new Basic();
     var io = new Apple1IO(textpage);
     var bios = new Bios();
