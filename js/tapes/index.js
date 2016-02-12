@@ -1,5 +1,5 @@
 var apple30th = require('./apple30th');
-var applesoft = require('./applesoft');
+//var applesoft = require('./applesoft');
 var basic = require('./basic');
 var blackjack = require('./blackjack');
 var checkers = require('./checkers');
@@ -15,12 +15,12 @@ var slots = require('./slots');
 var startrek = require('./startrek');
 var startrek2003 = require('./startrek2003');
 var volksforth = require('./volksforth');
-var wumpus = require('./wumpus');
-var wumpus2 = require('./wumpus2');
+//var wumpus = require('./wumpus');
+//var wumpus2 = require('./wumpus2');
 
 module.exports = {
     apple30th: apple30th,
-    applesoft: applesoft,
+//    applesoft: applesoft,
     basic: basic,
     blackjack: blackjack,
     checkers: checkers,
@@ -35,7 +35,7 @@ module.exports = {
     slots: slots,
     startrek: startrek,
     startrek2003: startrek2003,
-    volksforth: volksforth,
-    wumpus: wumpus,
-    wumpus2: wumpus2
+    volksforth: volksforth
+//    wumpus: wumpus,
+//    wumpus2: wumpus2
 };

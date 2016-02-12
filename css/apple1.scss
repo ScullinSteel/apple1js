@@ -47,7 +47,7 @@ body {
 }
 
 #display {
-  margin: 5px 0;
+  margin: auto 0;
 }
 
 .overscan {
@@ -143,6 +143,15 @@ canvas {
 
 #text_input {
   font-family: Courier, fixed;
+}
+
+.noselect {
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 @import './keyboard';

@@ -208,24 +208,24 @@ function KeyBoard(io, cpu, textpage) {
                 this.classList.add('pressed');
                 var key = evt.currentTarget.dataset[shifted ? 'key2' : 'key1'];
                 switch (key) {
-                case 'BELL':
+                case 'bell':
                     key = 'G';
                     break;
-                case 'RETURN':
+                case 'return':
                     key = '\r';
                     break;
-                case 'LINE': 
-                case 'FEED':
+                case 'line': 
+                case 'feed':
                     key = '\n';
                     break;
-                case 'RUB':
-                case 'OUT':
+                case 'rub':
+                case 'out':
                     key = '_'; // 0x5f
                     break;
                 case '&nbsp;':
                     key = ' ';
                     break;
-                case 'ESC':
+                case 'esc':
                     key = '\033';
                     break;
                 default:
@@ -277,7 +277,7 @@ function KeyBoard(io, cpu, textpage) {
                     key.classList.add('key-' + key1.replace(/[&#;]/g,''));
 
                     if (key1.length > 1) {
-                        if (key1 == 'lock') {
+                        if (key1 != key2) {
                             key.classList.add('vcenter2');
                         } else if (key1.substr(0,1) != '&') {
                             key.classList.add('vcenter');

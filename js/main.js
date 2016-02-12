@@ -1,3 +1,8 @@
+var debugLib = require('debug');
+var debug = debugLib('apple1js:main');
+
+window.debugLib = debugLib;
+
 var Apple1 = require('./apple1');
 var KeyBoard = require('./ui/keyboard');
 var Player = require('./ui/player');
@@ -19,16 +24,39 @@ var keyboard = new KeyBoard(io, cpu, textpage);
 keyboard.create(document.querySelector('#keyboard'));
 player.create(document.querySelector('#player'), io, cpu, aci);
 
-function loadTape(name, turbotape) {
-    var label = document.querySelector('#player_label');
+var menu = document.querySelector('#tape_menu');
 
+function loadTape(name, turbotape) {
     var tape = tapes[name];
     if (tape) {
+        document.location.hash = '#' + name;
         player.load(tape, turbotape);
-        label.innerText = tape.name;
+        menu.value = name;
     } else {
         cpu.reset();
-        label.innerText = '';
+    }
+}
+
+function menuCallback(event) {
+    var name = event.target.value;
+    if (name) {
+        loadTape(name, false);
+    }
+}
+
+menu.onchange = menuCallback;
+var item = document.createElement('option');
+item.innerText = 'Select...';
+item.value = '';
+menu.appendChild(item);
+
+for (var name in tapes) {
+    if (tapes.hasOwnProperty(name)) {
+        debug('Adding', name);
+        item = document.createElement('option');
+        item.innerText = tapes[name].name;
+        item.value = name;
+        menu.appendChild(item);
     }
 }
 
