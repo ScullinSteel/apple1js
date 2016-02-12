@@ -15,7 +15,7 @@ module.exports = function(grunt) {
             files: [
                 'Gruntfile.js',
                 'js/*.js',
-                'js/roms/*.js',
+                'js/tapes/*.js',
                 'js/ui/*.js'
             ]
         },
