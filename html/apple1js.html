@@ -42,6 +42,11 @@
     <script type="text/javascript">
     {
         var main = require('./js/main.js');
+
+        window.ontouchmove = function(event) {
+            event.preventDefault();
+        };
+
         function updateHash() {
             var hash = document.location.hash;
             if (hash) {
