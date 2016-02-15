@@ -28,6 +28,7 @@
       </div>
       <div class="overscan">
         <canvas width="560" height="384" id="screen" />
+        <input type="text" id="hidden_input"></input>
       </div>
       <div class="inset">
         <label for="tape_menu">Tape:</label>
@@ -46,6 +47,14 @@
         window.ontouchmove = function(event) {
             event.preventDefault();
         };
+
+        function loadFile() {
+            var fileInput = document.querySelector('#tape_file');
+            var files = fileInput.files;
+            if (files && files.length) {
+                main.loadFile(files[0]);
+            }
+        }
 
         function updateHash() {
             var hash = document.location.hash;

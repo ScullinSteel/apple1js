@@ -11,6 +11,19 @@ img {
   padding: 0 12px;
 }
 
+#hidden_input {
+  background: none;
+  border: 0;
+  height: 1;
+  margin: 0;
+  padding: 0;
+  width: 1;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 h1 {
   color: $white;
   font-family: Helvetica, Ariel;

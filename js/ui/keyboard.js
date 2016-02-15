@@ -136,7 +136,7 @@ var keymap = {
     0xFF: [0xFF, 0xFF, 0xFF] // No comma line
 };
 
-function KeyBoard(io, cpu, textpage) {
+function KeyBoard(_io, _cpu, _textpage) {
     var keys = 
         [[['1','2','3','4','5','6','7','8','9','0',':','-','reset'],
           ['esc','Q','W','E','R','T','Y','U','I','O','P','feed','return'],
@@ -241,19 +241,19 @@ function KeyBoard(io, cpu, textpage) {
                         self.controlKey(!controlled);
                         break;
                     case 'reset':
-                        cpu.reset();
+                        _cpu.reset();
                         break;
                     case 'cls':
-                        textpage.clear();
+                        _textpage.clear();
                         break;
                     default:
                         break;
                     }
                 } else {
                     if (controlled && key >= '@' && key <= '_') {
-                        io.keyDown(key.charCodeAt(0) - 0x40);
+                        _io.keyDown(key.charCodeAt(0) - 0x40);
                     } else {
-                        io.keyDown(key.charCodeAt(0));
+                        _io.keyDown(key.charCodeAt(0));
                     }
                 }
             }
@@ -311,6 +311,11 @@ function KeyBoard(io, cpu, textpage) {
             controlKey = keyboard.querySelector('.key-ctrl');
 
             window.addEventListener('keydown', function(evt) {
+                // Ignore command- or option- keys
+                if (evt.metaKey || evt.altKey) {
+                    return true;
+                }
+
                 if (evt.keyCode == 16) { // Shift
                     self.shiftKey(true);
                 } else if (evt.keyCode == 17) { // Control
@@ -319,7 +324,7 @@ function KeyBoard(io, cpu, textpage) {
                     // Keyboard Input
                     var mapped = self.mapKeyEvent(evt);
                     if (mapped != 0xff) {
-                        io.keyDown(mapped);
+                        _io.keyDown(mapped);
                     }
                 }
                 evt.preventDefault();
@@ -335,6 +340,22 @@ function KeyBoard(io, cpu, textpage) {
                 evt.preventDefault();
                 return false;
             });
+            
+            var hiddenInput = document.querySelector('#hidden_input');
+
+            function focusHiddenInput() {
+                debug('focusing...');
+                hiddenInput.value = '';
+                hiddenInput.focus();
+            }
+
+            document.addEventListener('mouseup', focusHiddenInput);
+            document.addEventListener('paste', function(evt) {
+                _io.paste(evt.clipboardData.getData('text/plain'));
+                focusHiddenInput();
+                evt.preventDefault();
+            });
+            focusHiddenInput();
         }
     };
 }

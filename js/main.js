@@ -37,6 +37,10 @@ function loadTape(name, turbotape) {
     }
 }
 
+function loadFile(file) {
+    player.loadFile(file);
+}
+
 function menuCallback(event) {
     var name = event.target.value;
     if (name) {
@@ -61,5 +65,6 @@ for (var name in tapes) {
 }
 
 module.exports = {
-    loadTape: loadTape
+    loadTape: loadTape,
+    loadFile: loadFile
 };

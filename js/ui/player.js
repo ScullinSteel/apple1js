@@ -47,7 +47,34 @@ function Player() {
                 _io.paste(tape.script);
             }
         },
-        
+
+        loadFile: function(file) {
+            _cpu.reset();
+            var AC = window.webkitAudioContext || window.AudioContext;
+
+            var fileReader = new FileReader();
+            fileReader.onload = function(ev) {
+                var context = new AC();
+                context.decodeAudioData(ev.target.result, function(buffer) {
+                    var buf = [];
+                    var data = buffer.getChannelData(0);
+                    var old = (data[0] > 0.25);
+                    var last = 0;
+                    for (var idx = 1; idx < data.length; idx++) {
+                        var current = (data[idx] > 0.25);
+                        if (current != old) {
+                            var delta = idx - last;
+                            buf.push(parseInt(delta / buffer.sampleRate * 1023000));
+                            old = current;
+                            last = idx;
+                        }
+                    }
+                    _aci.buffer = buf;
+                });
+            };
+            fileReader.readAsArrayBuffer(file);
+        },
+
         progress: function (val) {
             tape.style.width = (val * 100) + 'px';
         }
