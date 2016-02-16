@@ -10,6 +10,7 @@ var ACI = require('./aci');
 var kHz = 1023;
 var runTimer;
 var _requestAnimationFrame;
+var actualKhz;
 
 if (typeof window !== 'undefined') {
     _requestAnimationFrame =
@@ -91,6 +92,10 @@ function Apple1(options) {
 
         getTextPage: function getTextPage() {
             return textpage;
+        },
+
+        getKhz: function getKhz() {
+            return actualKhz;
         }
     };
 }

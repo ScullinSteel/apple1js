@@ -340,11 +340,11 @@ function KeyBoard(_io, _cpu, _textpage) {
                 evt.preventDefault();
                 return false;
             });
-            
+
+            /*
             var hiddenInput = document.querySelector('#hidden_input');
 
             function focusHiddenInput() {
-                debug('focusing...');
                 hiddenInput.value = '';
                 hiddenInput.focus();
             }
@@ -356,6 +356,7 @@ function KeyBoard(_io, _cpu, _textpage) {
                 evt.preventDefault();
             });
             focusHiddenInput();
+            */
         }
     };
 }
