@@ -29,7 +29,8 @@ module.exports = function(grunt) {
                         options: {
                             index: 'apple1js.html'
                         }
-                    }
+                    },
+                    livereload: true
                 }
             }
         },
@@ -81,11 +82,17 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['<%= eslint.files %>'],
-                tasks: ['eslint','browserify']
+                tasks: ['eslint','browserify'],
+                options: {
+                    livereload: true
+                }
             },
             html: {
                 files: ['./html/*.html', 'img/*', 'json/*'],
-                tasks: ['copy']
+                tasks: ['copy'],
+                options: {
+                    livereload: true
+                }
             },
             css: {
                 files: ['./css/*.scss'],
